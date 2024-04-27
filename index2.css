@@ -163,7 +163,7 @@ footer {
     color: #ADCECE;
     text-align: center;
     height: 15vh;
-    position: sticky;
+    position: static;
     font-size: 18px;
     width: 100%;
     bottom: 0;
@@ -173,11 +173,8 @@ footer {
 footer a {
     color: #ADCECE;
     border-bottom: 1px solid #ADCECE;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
 }
 h1 {
     text-align: center;
