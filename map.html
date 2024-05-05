@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMATA Home</title>
+    <link rel="stylesheet" href="index2.css">
+    <script src="capstone.js"></script>
+    <script src="https://kit.fontawesome.com/5ed1559302.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="head">
+        <div class="container">
+            <div class="img-head">
+                <img src="https://www.progressiverailroading.com/resources/editorial/2019/PR0519-Metro.jpg" class="metro_img" alt="">
+                <h2 class="wm">WM</h2>
+                <h2 class="ta">TA</h2>
+            </div>
+            <div class="nav">
+                <ul class = "options">
+                    <li><a href="home_page.html">Home<i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="fares.html">Fares<i class="fa-solid fa-ticket"></i></a></li>
+                    <li><a href = "map.html">Map <i class="fa-solid fa-map"></i></a></li>
+                    <li><a href="architecture.html">Architecture <i class="fa-solid fa-archway"></i></a></li>
+                </ul>
+            </div>
+        </div>  
+    </nav>
+
+    <div class="body_text">
+        <h1>Map - Line Info</h1>
+        </div>
+
+    <nav class = "options">
+    <ul id = "lines" class = "options">
+        <li onclick ="red()" id = "red">Red</li>
+        <li onclick = "orange()" id = "orange">Orange</li>
+        <li onclick = "yellow()" id = "yellow">Yellow</li>
+        <li onclick = "blue()" id = "blue">Blue</li>
+        <li onclick = "green()" id = "green">Green</li>
+    </ul>
+    <div id="indicator"></div>
+    </nav>
+<div class="map-info">
+    <div class="line-view">
+            <div class="line-colour" id = "line-colour">
+            <div class="line-begin"></div>
+            <div class="line-terminus"></div>
+        <button class = "statRed1" id = "stat1" onclick = "stat1()">Dupont Circle</button>
+        <button class="statRed1" id = "stat2" onclick = "stat2()">Faragut North</button>
+        <button class="statRed1" id = "stat3" onclick = "stat3()">Gallery Pi</button>
+        <button class="statRed1" id = "stat4" onclick = "stat4()">Judiciary Square</button>
+        <button class="statRed1" id = "stat5" onclick = "stat4()">Union Station</button>
+        <button class="statRed1" id = "stat6" onclick = "stat5()">New York Ave</button>
+            </div>
+    </div>
+
+    <div class="line-text">
+        <p class="prompt" id = "prompt">Choose a station to begin</p>
+        <img src="" id = "stat-img">
+        <h3>Departures</h3>
+        <div id="station-info"></div>
+    </div>
+</div>
+
+</body>
+
+</html>
