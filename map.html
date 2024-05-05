@@ -128,7 +128,7 @@ function stat1() {
         const STATION_CODE = 'A03';
 
         function fetchStationInfo() {
-            const jsonEndpoint = `http://api.wmata.com/StationPrediction.svc/json/GetPrediction/${STATION_CODE}?api_key=${API_KEY}`;
+            const jsonEndpoint = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${STATION_CODE}?api_key=${API_KEY}`;
 
             fetch(jsonEndpoint)
                 .then(response => response.json())
