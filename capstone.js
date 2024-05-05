@@ -119,7 +119,7 @@ function stat1() {
         const STATION_CODE = 'A03';
 
         function fetchStationInfo() {
-            const jsonEndpoint = `http://api.wmata.com/StationPrediction.svc/json/GetPrediction/${STATION_CODE}?api_key=${API_KEY}`;
+            const jsonEndpoint = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${STATION_CODE}?api_key=${API_KEY}`;
 
             fetch(jsonEndpoint)
                 .then(response => response.json())
@@ -147,6 +147,8 @@ function stat1() {
         }
         fetchStationInfo();
     }
+}
+
     if (textcontent === "Foggy Bottom") {
         document.getElementById("prompt").textContent = "Foggy Bottom";
         document.getElementById("stat-img").src ="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/WMATA_Foggy_Bottom%E2%80%93GWU.jpg/1200px-WMATA_Foggy_Bottom%E2%80%93GWU.jpg"
