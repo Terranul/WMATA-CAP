@@ -163,7 +163,10 @@ footer {
     color: #ADCECE;
     text-align: center;
     height: 15vh;
-    position:static;
+    position: static; 
+    bottom: 0;
+    left: 0;
+    right: 0;
     font-size: 18px;
     width: 100%;
     
@@ -266,19 +269,6 @@ button:hover {
     border-bottom: 2px solid 	#D3D3D3;
     border-radius: 0px;
 }
-
-#green{
-    border-right: 2px solid #D3D3D3;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-#red{
-    border-left: 2px solid 	#D3D3D3;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
  
 #indicator {
     background: #000000;
@@ -364,12 +354,18 @@ button:hover {
     align-items: center;
 }
 
+.prompt {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .line-text  {
     text-align: center;
     font-size: 30px;
     border: 2px solid #D3D3D3;
     padding: 30px;
     border-radius: 30px;
+    width: 100%;
 }
 
 #stat-img {
@@ -395,6 +391,89 @@ button:hover {
     background-color: white;
 }
 
+.options #lines {
+ border-left: 2px solid #D3D3D3;
+ border-right: 2px solid #D3D3D3;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+  }
+  
+  .readmoreContainer{
+    max-width: 1200px;
+    width: 90%;
+    margin: 1rem auto;
+  }
+  
+  .readmoreContainer  {
+    margin-top:0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .read-more{
+    background-color: transparent;
+    border: 1px solid #7B7674;
+    border-radius: 10px;
+    padding: 10px;
+    color: #7B7674;
+    cursor: pointer;
+    -webkit-transition: display .5s .2s ease-in;
+    -o-transition: display .5s .2s ease-in;
+    transition: display .5s .2s ease-in;
+    display:none;
+    
+    
+    
+  }
+  
+
+  .text-openn {
+    line-height: 200%;
+    color: #7B7674;
+  }
+  .read-more:hover {
+    font-weight: 550;  
+  }
+  
+  .hide{
+    display: none; 
+    max-width: 100%;
+    overflow:hidden;
+  }
+
+.hide-container {
+    display: none;
+}
+  
+  .read-less {
+    background-color: transparent;
+    border: transparent;
+    padding: 5px;
+    border-radius: 10px;
+    color: #7B7674;
+    cursor: pointer;
+
+  }
+  
+  .read-less:hover{
+      background-color:lightgray;
+  }
+  .read-less:hover {
+    font-weight: 550;  
+  }
+  
+  .readMoreOff {
+      opacity:0;
+  }
+  
+  .readMoreOn {
+      opacity:1;
+  }
 @media screen and (min-width: 750px) {
 .text1 {
     width: 50vh;
@@ -444,6 +523,17 @@ button:hover {
     height: 20vh;
 }
 
+#lines li {
+    border-top: none;
+    border-bottom: none;
+}
+
+.options #lines {
+    border-bottom: 2px solid #D3D3D3;
+    border-top: 2px solid #D3D3D3;
+    align-self: center;
+}
+
 .text1 {
     line-height: normal;
     width: 25vh;
@@ -453,5 +543,13 @@ button:hover {
 .img2{
     width: 2vh;
     height: 20vh;
+}
+
+.station-predict li {
+    font-size: 15px;
+}
+
+.line-view button:hover{
+    padding: 30px;
 }
 }
