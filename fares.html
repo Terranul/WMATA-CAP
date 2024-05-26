@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMATA Home</title>
+    <link rel="stylesheet" href="index2.css">
+    <script src="capstone.js"></script>
+    <script src="https://kit.fontawesome.com/5ed1559302.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="head">
+        <div class="container">
+            <div class="img-head">
+                <img src="https://www.progressiverailroading.com/resources/editorial/2019/PR0519-Metro.jpg" class="metro_img" alt="">
+                <h2 class="wm">WM</h2>
+                <h2 class="ta">TA</h2>
+            </div>
+            <div class="nav">
+                <ul class = "options">
+                    <li><a href="home_page.html">Home<i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="fares.html">Fares<i class="fa-solid fa-ticket"></i></a></li>
+                    <li><a href = "map.html">Map <i class="fa-solid fa-map"></i></a></li>
+                    <li><a href="architecture.html">Architecture <i class="fa-solid fa-archway"></i></a></li>
+                </ul>
+            </div>
+        </div>  
+    </nav>
+
+    <div class="body_text">
+        <h1>Fares</h1>
+        </div>
+
+<div class="help">
+<div class="wmata_map">
+    <div class="lines-rep">
+        <div class="red-line"></div>
+        <div class="green-line"></div>
+        <div class="orange-line"></div>
+        <div class="blue-line"></div>
+        <div class="yellow-line"></div>
+        <div class="silver-line"></div>
+    </div>
+</div>
+
+<div class = "button-contain"> <span style="margin-left: 20px;">Choose Zone</span>
+    <div class="clickme">
+    <button class = "option1" onclick = "option1()">One</button>
+     <button class = "option2" onclick = "option2()">Two</button>
+     <button class = "option3" onclick = "option3()">Three</button>
+      <button class = "option4" onclick = "option4()">Four</button>
+    </div>
+  </div>
+
+
+  <script>
+    var type = 1;
+
+function option4() {
+  if (type === 1) {
+    document.querySelector(".option4").style.marginLeft = "0px";
+    document.querySelector(".option3").style.marginLeft = "100px";
+    
+    document.querySelector(".option2").style.marginLeft = "200px";
+    document.querySelector(".option1").style.marginLeft = "300px";
+    type = 0; 
+  } else if (type === 0) {
+    document.querySelector(".option4").style.marginLeft = "0px";
+    document.querySelector(".option4").style.marginLeft = "0px";
+    document.querySelector(".option3").style.marginLeft = "0px";
+   document.querySelector(".option2").style.marginLeft = "0px";
+    document.querySelector(".option1").style.marginLeft = "0px";
+    type = 1; 
+
+    document.querySelector(".option3").style.zIndex = "1"
+    document.querySelector(".option4").style.zIndex = "3"
+    document.querySelector(".option2").style.zIndex = "1"
+    document.querySelector(".option1").style.zIndex = "1"
+  }
+}
+
+function option3() {
+    if (type === 1) {
+    document.querySelector(".option4").style.marginLeft = "100px";
+    document.querySelector(".option3").style.marginLeft = "0px";
+    
+    document.querySelector(".option2").style.marginLeft = "200px";
+    document.querySelector(".option1").style.marginLeft = "300px";
+    type = 0; 
+  } else if (type === 0) {
+    document.querySelector(".option4").style.marginLeft = "0px";
+    document.querySelector(".option3").style.marginLeft = "0px";
+    document.querySelector(".option2").style.marginLeft = "0px";
+    document.querySelector(".option1").style.marginLeft = "0px";
+    type = 1; 
+
+    document.querySelector(".option3").style.zIndex = "3"
+    document.querySelector(".option4").style.zIndex = "1"
+    document.querySelector(".option2").style.zIndex = "1"
+    document.querySelector(".option1").style.zIndex = "1"
+  }
+}
+
+function option2(){
+    if (type === 1) {
+    document.querySelector(".option4").style.marginLeft = "100px";
+    document.querySelector(".option3").style.marginLeft = "200px";
+    
+    document.querySelector(".option2").style.marginLeft = "0px";
+    document.querySelector(".option1").style.marginLeft = "300px";
+    type = 0; 
+  } else if (type === 0) {
+    document.querySelector(".option4").style.marginLeft = "0px";
+    document.querySelector(".option3").style.marginLeft = "0px";
+    document.querySelector(".option2").style.marginLeft = "0px";
+    document.querySelector(".option1").style.marginLeft = "0px";
+    type = 1; 
+
+    document.querySelector(".option3").style.zIndex = "1"
+    document.querySelector(".option4").style.zIndex = "1"
+    document.querySelector(".option2").style.zIndex = "3"
+    document.querySelector(".option1").style.zIndex = "1"
+  }
+}
+
+function option1(){
+    if (type === 1) {
+    document.querySelector(".option4").style.marginLeft = "100px";
+    document.querySelector(".option3").style.marginLeft = "200px";
+    
+    document.querySelector(".option2").style.marginLeft = "300px";
+    document.querySelector(".option1").style.marginLeft = "0px";
+    type = 0; 
+  } else if (type === 0) {
+    document.querySelector(".option4").style.marginLeft = "0px";
+    document.querySelector(".option3").style.marginLeft = "0px";
+    document.querySelector(".option2").style.marginLeft = "0px";
+    document.querySelector(".option1").style.marginLeft = "0px";
+    type = 1; 
+
+    document.querySelector(".option3").style.zIndex = "1"
+    document.querySelector(".option4").style.zIndex = "1"
+    document.querySelector(".option2").style.zIndex = "1"
+    document.querySelector(".option1").style.zIndex = "3"
+  }
+}
+
+
+  </script>
+
