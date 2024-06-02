@@ -370,8 +370,19 @@ function stat6() {
         fetchStationInfo('E03');
         document.querySelector(".hide-container").style.display = "none";
         document.querySelector(".read-more").style.display = "none"
+    }}
+    let map = 0;
+
+function showMap(){
+    if (map === 0){
+        document.querySelector(".img-map").style.marginLeft = "0px";
+        map = 1;
+    } else {
+        document.querySelector(".img-map").style.marginLeft = "-100em";
+        map = 0;
     }
 }
+
 
 
 
@@ -411,6 +422,10 @@ function stat6() {
     </ul>
     <div id="indicator"></div>
     </nav>
+    <div class="view-map" onclick = "showMap()"><i class="fa-solid fa-map" style="color: #63E6BE;"></i></div>
+    <div class="img-contain">
+    <img  class = "img-map" src = "https://live.staticflickr.com/2031/2367101216_2b61e1b2e6_c.jpg">
+    </div>
 <div class="map-info">
     <div class="line-view">
             <div class="line-colour" id = "line-colour">  
