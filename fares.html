@@ -28,7 +28,11 @@
     </nav>
 
     <div class="body_text">
-        <h1>Fares</h1>
+        <h1>Fares
+          <div class = "info5">The DC Metro calculates fares based on distance. The information below is 
+            calculated considering fare prices if you ride out of downtown. 
+          </div>
+        </h1>
         </div>
 
 <div class="help">
@@ -43,7 +47,10 @@
     </div>
 </div>
 
-<div class = "button-contain"> <span style="margin-left: 20px;">Choose Zone</span>
+<div class="add" onclick = "add()"><i class="fa-solid fa-square-plus" style="color: #044d86"></i></div>
+
+<div class = "button-contain"> 
+  <span style="margin-left: 20px;">Choose Zone</span>
     <div class="clickme">
     <button class = "option1" onclick = "option1()">One</button>
      <button class = "option2" onclick = "option2()">Two</button>
@@ -52,11 +59,157 @@
     </div>
   </div>
 
+<div class="zone-info">
+  <div class="zone1">
+    <div class="x"; onclick="x1()" id = "x1"><i class="fa-solid fa-xmark" style="color: #044d86;"></i></div>
+    <h3 onclick = "zone1Edit()" class = "h31"><span style="color: #A1A1A1; font-weight: lighter;">Choose a zone</span> <i class="fa-regular fa-pen-to-square"></i></h3>
+    <label for="options">Choose an option:</label>
+    <select id="stationSelect1" class="dropdown-select">
+        <option value="1">Choose Zone</option>
+        <option value="2">ok..</option>
+        <option value="3">choose a zone?</option>
+        <option value="4">please?</option>
+    </select>
+    <table>
+      <thead>
+          <tr>
+              <th></th>
+              <th>Regular</th>
+              <th>Reduced</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><span style="font-weight: bold;">Weekday</span></td>
+              <td class = "regday"id = "opt"></td>
+              <td class = "redday"id = "opt"></td>
+          </tr>
+          <tr>
+              <td><span style="font-weight: bold;">Weekend</span></td>
+              <td class = "regend"id = "opt"></td>
+              <td class = "redend"id = "opt"></td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  <div class="line" id = "line1">
+    <div class="arrow"><i class="fa-solid fa-arrow-right" style="color: #3305bd;"></i></div>
+  </div>
+  <div class="zone2">
+    <div class="x"; onclick="x2()" id = "x2"><i class="fa-solid fa-xmark" style="color: #044d86;"></i></div>
+    <h3 onclick = "zone2Edit()" class = "h32"><span style="color: #A1A1A1; font-weight: lighter;">Choose a zone</span> <i class="fa-regular fa-pen-to-square"></i></h3>
+    <label for="options">Choose an option:</label>
+    <select id="stationSelect2" class="dropdown-select">
+        <option value="1">Choose Zone</option>
+        <option value="2">ok..</option>
+        <option value="3">choose a zone?</option>
+        <option value="4">please?</option>
+    </select>
+    <table>
+      <thead>
+          <tr>
+              <th></th>
+              <th>Regular</th>
+              <th>Reduced</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><span style="font-weight: bold;">Weekday</span></td>
+              <td class = "regday2" id = "opt"></td>
+              <td class = "redday2" id = "opt"></td>
+          </tr>
+          <tr>
+              <td><span style="font-weight: bold;">Weekend</span></td>
+              <td class = "regend2" id = "opt"></td>
+              <td class = "redend2" id = "opt"></td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  <div class="line" id = "line2">
+    <div class="arrow" onclick = "arrow()"><i class="fa-solid fa-arrow-right" style="color: #3305bd;"></i></div>
+  </div>
+  <div class="zone3">
+    <div class="x"; onclick="x3()" id = "x3"><i class="fa-solid fa-xmark" style="color: #044d86;"></i></div>
+    <h3 onclick = "zone3Edit()" class = "h33"><span style="color: #A1A1A1; font-weight: lighter;">Choose a zone</span> <i class="fa-regular fa-pen-to-square"></i></h3>
+    <label for="options">Choose an option:</label>
+    <select id="stationSelect3" class="dropdown-select">
+        <option value="1">Choose an option</option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+    </select>
+    <table>
+      <thead>
+          <tr>
+              <th></th>
+              <th>Regular</th>
+              <th>Reduced</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><span style="font-weight: bold;">Weekday</span></td>
+              <td class = "regday3" id = "opt"></td>
+              <td class = "redday3" id = "opt"></td>
+          </tr>
+          <tr>
+              <td><span style="font-weight: bold;">Weekend</span></td>
+              <td class = "regend3" id = "opt"></td>
+              <td class = "redend3" id = "opt"></td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+
+  <div class="result">
+    <span style="font-weight: bold;">Result</span>
+    <button onclick= "result()" class = "btn-result">Estimate Fare <i class="fa-solid fa-magnifying-glass"></i></button>
+    <div class="search">Calculating from stations chosen in zones <span style="font-weight: bold;">1 , 2</span></div>
+  </div>
+
 
   <script>
     var type = 1;
+    var lock1 = 1;
+    var lock2 = 1;
+    var lock3 = 1;
+    var amount = 2;
+    const selects = [];
 
 function option4() {
+  const stations = [
+    { name: "New Carrollton", code: "D13" },
+    { name: "Landover", code: "D12" },
+    { name: "Cheverly", code: "D11" },
+    { name: "Deanwood", code: "D09" },
+    { name: "Minnesota Ave", code: "D08" },
+    { name: "Glenmont", code: "A15" },
+    { name: "Wheaton", code: "A14" },
+    { name: "Forest Glen", code: "A13" },
+    { name: "Rockville", code: "A12" },
+    { name: "Shady Grove", code: "A11" },
+    { name: "Twinbrook", code: "A10" },
+    { name: "White Flint", code: "A09" },
+    { name: "Grosvenor-Strathmore", code: "A08" },
+    { name: "Bethesda", code: "A07" },
+    { name: "Medical Center", code: "A06" },
+    { name: "Friendship Heights", code: "A05" },
+    { name: "Tenleytown-AU", code: "A04" },
+    { name: "Van Ness-UDC", code: "A03" },
+    { name: "Cleveland Park", code: "A02" },
+    { name: "Woodley Park", code: "A01" },
+    { name: "Vienna/Fairfax-GMU", code: "K08" },
+    { name: "Dunn Loring-Merrifield", code: "K07" },
+    { name: "West Falls", code: "K06" },
+    { name: "East Falls Church", code: "K08" },
+    { name: "Wiehle-Reston East", code: "N06" },
+    { name: "Tysons Corner", code: "N04" },
+    { name: "McLean", code: "N03" },
+    { name: "Greensboro", code: "N02" }
+];
   if (type === 1) {
     document.querySelector(".option4").style.marginLeft = "0px";
     document.querySelector(".option3").style.marginLeft = "100px";
@@ -64,6 +217,17 @@ function option4() {
     document.querySelector(".option2").style.marginLeft = "200px";
     document.querySelector(".option1").style.marginLeft = "300px";
     type = 0; 
+
+    document.querySelector('.green-line').classList.remove('pseudo-active');
+    document.querySelector('.green-line').classList.add('pseudo-hide');
+    document.querySelector('.green-line').classList.remove('pseudo-show');
+    document.querySelector('.green-line').style.borderRightColor = "grey";
+
+    document.querySelector('.red-line').classList.remove('pseudo-active');
+    document.querySelector('.red-line').classList.add('pseudo-hide');
+    document.querySelector('.red-line').classList.remove('pseudo-show');
+
+
   } else if (type === 0) {
     document.querySelector(".option4").style.marginLeft = "0px";
     document.querySelector(".option4").style.marginLeft = "0px";
@@ -76,10 +240,116 @@ function option4() {
     document.querySelector(".option4").style.zIndex = "3"
     document.querySelector(".option2").style.zIndex = "1"
     document.querySelector(".option1").style.zIndex = "1"
+
+    document.querySelector('.green-line').classList.add('pseudo-active');
+    document.querySelector('.green-line').classList.remove('pseudo-hide');
+    document.querySelector('.green-line').classList.add('pseudo-show');
+
+    document.querySelector('.red-line').classList.add('pseudo-active');
+    document.querySelector('.red-line').classList.remove('pseudo-hide');
+    document.querySelector('.red-line').classList.add('pseudo-show');
+
+    document.querySelector('.green-line').style.borderColor = "grey";
+    document.querySelector('.red-line').style.borderColor = "grey";
+    document.querySelector('.silver-line').style.borderColor = "grey";
+    document.querySelector('.orange-line').style.backgroundColor = "grey";
+    document.querySelector('.yellow-line').style.borderColor = "grey";
+    document.querySelector('.blue-line').style.borderColor = "grey";
+    document.querySelector('.green-line').style.borderRightColor = "green";
+    
+    if (lock1 === 1){
+      document.querySelector(".h31").innerHTML = 'Zone 4<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h31").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday").textContent = "$3.00+"
+      document.querySelector(".redday").textContent = "$1.75 - $3.00"
+      document.querySelector(".regend").textContent = "$3.25 - $3.50"
+      document.querySelector(".redend").textContent = "$1.25 - $1.75"
+
+      document.querySelectorAll('#stationSelect1').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock1 = 0;
+    }
+
+    if (lock2 === 1){
+      document.querySelector(".h32").innerHTML = 'Zone 4<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h32").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday2").textContent = "$3.00+"
+      document.querySelector(".redday2").textContent = "$1.75 - $3.00"
+      document.querySelector(".regend2").textContent = "$3.25 - $3.50"
+      document.querySelector(".redend2").textContent = "$1.25 - $1.75"
+
+      document.querySelectorAll('#stationSelect2').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock2 = 0;
+    }
+
+    if (lock3 === 1){
+      document.querySelector(".h33").innerHTML = 'Zone 4<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h33").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday3").textContent = "$3.00+"
+      document.querySelector(".redday3").textContent = "$1.75 - $3.00"
+      document.querySelector(".regend3").textContent = "$3.25 - $3.50"
+      document.querySelector(".redend3").textContent = "$1.25 - $1.75"
+
+      document.querySelectorAll('#stationSelect3').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock3 = 0;
+    }
   }
-}
+
+  }
 
 function option3() {
+  const stations = [
+    { name: "Silver Spring", code: "C15" },
+    { name: "Takoma", code: "A15" },
+    { name: "Fort Totten", code: "B06" },
+    { name: "West Hyattsville", code: "A12" },
+    { name: "Prince George's Plaza", code: "E04" },
+    { name: "College Park", code: "E06" },
+    { name: "Greenbelt", code: "E10" },
+    { name: "Anacostia", code: "F08" },
+    { name: "Congress Heights", code: "F11" },
+    { name: "Southern Ave", code: "F13" },
+    { name: "Naylor Road", code: "F14" },
+    { name: "Benning Road", code: "G01" },
+    { name: "Addison Road", code: "G02" },
+    { name: "Capitol Heights", code: "G03" },
+    { name: "Suitland", code: "G05" },
+    { name: "Branch Ave", code: "G07" },
+    { name: "Braddock Road", code: "C12" },
+    { name: "King Street-Old Town", code: "C13" },
+    { name: "Eisenhower Ave", code: "C14" },
+    { name: "Huntington", code: "C15" },
+    { name: "Ballston-MU", code: "K05" },
+    { name: "Virginia Square-GMU", code: "K06" },
+    { name: "Clarendon", code: "K07" },
+    { name: "East Falls Church", code: "K08" }
+];
     if (type === 1) {
     document.querySelector(".option4").style.marginLeft = "100px";
     document.querySelector(".option3").style.marginLeft = "0px";
@@ -98,10 +368,92 @@ function option3() {
     document.querySelector(".option4").style.zIndex = "1"
     document.querySelector(".option2").style.zIndex = "1"
     document.querySelector(".option1").style.zIndex = "1"
+
+    if (lock1 === 1){
+      document.querySelector(".h31").innerHTML = 'Zone 3<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h31").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday").textContent = "$3.00 - $4.00"
+      document.querySelector(".redday").textContent = "$1.50 - $2.50"
+      document.querySelector(".regend").textContent = "$2.75 - $3.00"
+      document.querySelector(".redend").textContent = "$1.00 - $2.00"
+
+      document.querySelectorAll('#stationSelect1').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock1 = 0;
+    }
+
+    if (lock2 === 1){
+      document.querySelector(".h32").innerHTML = 'Zone 3<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h32").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday2").textContent = "$3.00 - $4.00"
+      document.querySelector(".redday2").textContent = "$1.50 - $2.50"
+      document.querySelector(".regend2").textContent = "$2.75 - $3.00"
+      document.querySelector(".redend2").textContent = "$1.00 - $2.00"
+
+      document.querySelectorAll('#stationSelect2').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock2 = 0;
+    }
+
+    if (lock3 === 1){
+      document.querySelector(".h33").innerHTML = 'Zone 3<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h33").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday3").textContent = "$3.00 - $4.00"
+      document.querySelector(".redday3").textContent = "$1.50 - $2.50"
+      document.querySelector(".regend3").textContent = "$2.75 - $3.00"
+      document.querySelector(".redend3").textContent = "$1.00 - $2.00"
+
+      document.querySelectorAll('#stationSelect3').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock3 = 0;
+    }
   }
 }
 
 function option2(){
+  const stations = [
+                { name: "Dupont Circle", code: "A03" },
+                { name: "Foggy Bottom-GWU", code: "C04" },
+                { name: "U Street", code: "E02" },
+                { name: "Howard University", code: "E03" },
+                { name: "Columbia Heights", code: "E04" },
+                { name: "Navy Yard-Ballpark", code: "F03" },
+                { name: "Waterfront", code: "F04" },
+                { name: "Potomac Ave", code: "D06" },
+                { name: "Stadium-Armory", code: "D07" },
+                { name: "Rosslyn", code: "C05" },
+                { name: "Arlington Cemetery", code: "C06" },
+                { name: "Pentagon", code: "C07" },
+                { name: "Pentagon City", code: "C08" },
+                { name: "Crystal City", code: "C09" },
+                { name: "National Airport", code: "C10" },
+                { name: "Court House", code: "C11" },
+                { name: "Clarendon", code: "C12" }
+            ];
     if (type === 1) {
     document.querySelector(".option4").style.marginLeft = "100px";
     document.querySelector(".option3").style.marginLeft = "200px";
@@ -109,6 +461,7 @@ function option2(){
     document.querySelector(".option2").style.marginLeft = "0px";
     document.querySelector(".option1").style.marginLeft = "300px";
     type = 0; 
+
   } else if (type === 0) {
     document.querySelector(".option4").style.marginLeft = "0px";
     document.querySelector(".option3").style.marginLeft = "0px";
@@ -120,10 +473,91 @@ function option2(){
     document.querySelector(".option4").style.zIndex = "1"
     document.querySelector(".option2").style.zIndex = "3"
     document.querySelector(".option1").style.zIndex = "1"
+
+    if (lock1 === 1){
+      document.querySelector(".h31").innerHTML = 'Zone 2<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h31").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday").textContent = "$2.50 - $4.00"
+      document.querySelector(".redday").textContent = "$1.25 - $2.00"
+      document.querySelector(".regend").textContent = "$2.25 - $2.50"
+      document.querySelector(".redend").textContent = "$1.00 - $1.50"
+
+      document.querySelectorAll('#stationSelect1').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+  lock1 = 0;
+    }
+
+    if (lock2 === 1){
+      document.querySelector(".h32").innerHTML = 'Zone 2<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h32").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday2").textContent = "$2.50 - $4.00"
+      document.querySelector(".redday2").textContent = "$1.25 - $2.00"
+      document.querySelector(".regend2").textContent = "$2.25 - $2.50"
+      document.querySelector(".redend2").textContent = "$1.00 - $1.50"
+
+      document.querySelectorAll('#stationSelect2').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock2 = 0;
+    }
+
+    if (lock3 === 1){
+      document.querySelector(".h33").innerHTML = 'Zone 2<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h33").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday3").textContent = "$2.50 - $4.00"
+      document.querySelector(".redday3").textContent = "$1.25 - $2.00"
+      document.querySelector(".regend3").textContent = "$2.25 - $2.50"
+      document.querySelector(".redend3").textContent = "$1.00 - $1.50"
+
+      document.querySelectorAll('#stationSelect3').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name} - ${station.code}`;
+        select.appendChild(option);
+    });
+});
+      lock3 = 0;
+    }
   }
-}
+        }
+            
 
 function option1(){
+  const stations = [
+                { name: "Gallery Place" },
+                { name: "Metro Center" },
+                { name: "Judiciary Square" },
+                { name: "Archives-Navy" },
+                { name: "Federal Triangle" },
+                { name: "Smithsonian" },
+                { name: "L'Enfant Plaza" },
+                { name: "McPherson Square" },
+                { name: "Farragut West" },
+                { name: "Farragut North"},
+                { name: "Union Station" },
+                { name: "Mount Vernon Square" },
+                { name: "Capitol South" },
+                { name: "Eastern Market" }
+            ];
+
     if (type === 1) {
     document.querySelector(".option4").style.marginLeft = "100px";
     document.querySelector(".option3").style.marginLeft = "200px";
@@ -141,10 +575,196 @@ function option1(){
     document.querySelector(".option3").style.zIndex = "1"
     document.querySelector(".option4").style.zIndex = "1"
     document.querySelector(".option2").style.zIndex = "1"
-    document.querySelector(".option1").style.zIndex = "3"
+    document.querySelector(".option1").style.zIndex = "3";
+
+    if (lock1 === 1){
+      document.querySelector(".h31").innerHTML = 'Zone 1<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h31").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday").textContent = "$2.00 - $3.00"
+      document.querySelector(".redday").textContent = "$1.00 - $1.50"
+      document.querySelector(".regend").textContent = "$2.00 - $2.25"
+      document.querySelector(".redend").textContent = "$0.50 - $1.00"
+
+      document.querySelectorAll('#stationSelect1').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name}`;
+        select.appendChild(option);
+    });
+});
+      lock1 = 0;
+    }
+
+    if (lock2 === 1){
+      document.querySelector(".h32").innerHTML = 'Zone 1<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h32").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday2").textContent = "$2.00 - $3.00"
+      document.querySelector(".redday2").textContent = "$1.00 - $1.50"
+      document.querySelector(".regend2").textContent = "$2.00 - $2.25"
+      document.querySelector(".redend2").textContent = "$0.50 - $1.00"
+      
+      document.querySelectorAll('#stationSelect2').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name}`;
+        select.appendChild(option);
+    });
+});
+      lock2 = 0;
+    }
+
+    if (lock3 === 1){
+      document.querySelector(".h33").innerHTML = 'Zone 1<i class="fa-regular fa-pen-to-square"></i>';
+      document.querySelector(".h33").style.borderBottomColor = "#E6E6E6";
+      document.querySelector(".regday3").textContent = "$2.00 - $3.00"
+      document.querySelector(".redday3").textContent = "$1.00 - $1.50"
+      document.querySelector(".regend3").textContent = "$2.00 - $2.25"
+      document.querySelector(".redend3").textContent = "$0.50 - $1.00"
+
+      document.querySelectorAll('#stationSelect3').forEach(select => {
+    select.innerHTML = ''; 
+
+    stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.code;
+        option.textContent = `${station.name}`;
+        select.appendChild(option);
+    });
+});
+      lock3 = 0;
+    }
+
+
+  }
+
+     } 
+
+function zone1Edit(){
+  document.querySelector(".h31").innerHTML = '<span style="color: #A1A1A1; font-weight: lighter;">Choose a zone</span> <i class="fa-regular fa-pen-to-square"></i>';
+  document.querySelector(".h31").style.borderBottomColor = "blue";
+  lock1 = 1;
+}
+
+function zone2Edit(){
+  document.querySelector(".h32").innerHTML = '<span style="color: #A1A1A1; font-weight: lighter;">Choose a zone</span> <i class="fa-regular fa-pen-to-square"></i>';
+  document.querySelector(".h32").style.borderBottomColor = "blue";
+  lock2 = 1;
+}
+
+function zone3Edit(){
+  document.querySelector(".h33").innerHTML = '<span style="color: #A1A1A1; font-weight: lighter;">Choose a zone</span> <i class="fa-regular fa-pen-to-square"></i>';
+  document.querySelector(".h33").style.borderBottomColor = "blue";
+  lock3 = 1;
+}
+
+var amount = 2;
+
+function x1(){
+  document.querySelector(".zone1").style.display = "none";
+  document.querySelector(".add").style.display = "block"
+  document.querySelector("#line1").style.display = "none"
+  document.querySelector("#line2").style.display = "none"
+  amount--;
+  if (amount === 1){
+    document.querySelector("#x2").style.display = "none";
   }
 }
 
+function x2(){
+  document.querySelector(".zone2").style.display = "none";
+  document.querySelector(".add").style.display = "block"
+  document.querySelector("#line1").style.display = "none"
+  document.querySelector("#line2").style.display = "none"
+  amount--;
+  if (amount === 1){
+    document.querySelector("#x1").style.display = "none";
+  }
+}
+
+function x3 (){
+  document.querySelector(".zone3").style.display = "none";
+  document.querySelector(".add").style.display = "block"
+  document.querySelector("#line1").style.display = "none"
+  document.querySelector("#line2").style.display = "none"
+  amount--;
+  if (amount === 1){
+    document.querySelector("#x1").style.display = "none";
+  }
+}
+
+function add(){
+  document.querySelector(".zone2").style.display = "block";
+  document.querySelector(".zone1").style.display = "block";
+  document.querySelector("#x2").style.display = "block";
+  document.querySelector("#x3").style.display = "block";
+  document.querySelector("#x1").style.display = "block";
+  if (amount === 2){
+    document.querySelector(".zone3").style.display = "block";
+  }
+  amount++;
+  if (amount === 3){
+    document.querySelector(".add").style.display = "none";
+    document.querySelector(".line").style.display = "block";
+  }
+
+}
+
+var arro = 0;
+function arrow(){
+  if (arro === 0) {
+    document.querySelector("#line1").style.display = "none"
+    document.querySelector("#line2").style.display = "block"
+    arro  = 1;
+  }
+
+  if (arro === 1) {
+    document.querySelector("#line1").style.display = "block"
+    document.querySelector("#line2").style.display = "none"
+    arro = 0;
+  }
+}
+
+function result(){
+
+  function getSelectedStationCode() {
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const stationCode = selectedOption.value;
+            console.log('Selected Station Code:', stationCode);
+        }
+
+
+  async function getStationCode(stationName) {
+    const apiKey = '3ba908db8eca4b57bb3a46a5ae41c1aa';
+    const url = `https://api.wmata.com/Rail.svc/json/jStations?api_key=${apiKey}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Search for the station by name
+        const station = data.Stations.find(station => station.Name === stationName);
+
+        if (station) {
+            return station.Code;
+        } else {
+            throw new Error('Station not found');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+getStationCode(document.querySelector(select).textContent).then(code => console.log('Station Code:', code));
+
+}
 
   </script>
+
 
