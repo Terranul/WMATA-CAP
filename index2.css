@@ -328,6 +328,29 @@ button:hover {
     margin-left: 60px;
 }
 
+.view-map {
+    border: 1px solid black;
+    height: 1.5em;
+    width: 1.5em;
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.img-map{
+    position: absolute;
+    border: 2px solid;
+    margin-left: -100em;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+.img-contain {
+    background-color: #7B7674;
+}
+
 .line-colour {
     background-color: red;
     width: 21%;
@@ -482,7 +505,6 @@ button:hover {
     height: 100%;
    
 }
-
 .red-line{
     position: absolute;
     width: 250px;
@@ -510,6 +532,46 @@ button:hover {
    
 
 }
+
+.green-line.pseudo-active::before{
+    position: absolute;
+    bottom: 40%;
+    left: -5.7%;
+    content: "";
+    height: 150px;
+    border: 20px solid green;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+}
+
+.green-line.pseudo-hide::before {
+    opacity: 0;
+}
+
+.green-line.pseudo-show::before {
+    opacity: 1;
+}
+
+.red-line.pseudo-active::before{
+    position: absolute;
+    left: -7.8%;
+    content: "";
+    height: 100px;
+    border: 20px solid red;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+}
+
+.red-line.pseudo-hide::before {
+    opacity: 0;
+}
+
+.red-line.pseudo-show::before {
+    opacity: 1;
+}
+
 
 .orange-line {
     position: absolute;
@@ -542,6 +604,7 @@ button:hover {
     margin-right: 230px;
 }
 
+
 .blue-line {
     position: absolute;
     width: 550px;
@@ -552,6 +615,13 @@ button:hover {
     height: 100px;
     margin-left: 50px ; 
     bottom: 24%;
+}
+
+.add {
+    position: absolute;
+    right: 3%;
+    top: 110%;
+    cursor: pointer;
 }
 
 .option1 {
@@ -611,6 +681,119 @@ button:hover {
     margin-bottom: 3.8em;
     margin-left: 8%;
 }
+
+.zone-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.zone1 {
+    margin-left: 30px;
+    background-color:#E6E6E6;
+    padding: 20px;
+    flex-grow: 1;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    position: relative;
+}
+
+.zone2 {
+    margin-right: 30px;
+    margin-left: 30px;
+    background-color:#E6E6E6;
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.zone3 {
+    margin-right: 30px;
+    margin-left: 30px;
+    background-color:#E6E6E6;
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    display: none;
+}
+
+h3 {
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 3px solid blue;
+}
+
+tr th {
+    padding: 10px;
+}
+
+tr td {
+    padding: 10px;
+}
+
+#opt {
+    font-size: smaller;
+}
+
+.info5 {
+    font-weight: 200;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: smaller;
+    margin-top: 10px;
+}
+
+.result {
+    background-color: #E6E6E6;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.result .search {
+    font-size: smaller;
+    margin-top: 10px;
+}
+
+.btn-result {
+    padding: 10px;
+    width: 30%;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.x {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    cursor: pointer;
+}
+
+.line {
+ background-color: lightblue;
+ display: none;
+ width: 4px;
+ padding-bottom: 20px;
+ position: relative;
+
+
+ }
+
+ .arrow {
+    position: absolute;
+    cursor: pointer;
+ }
 
 
 
