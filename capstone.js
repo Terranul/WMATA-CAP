@@ -422,6 +422,18 @@ function stat6() {
     }
 }
 
+let map = 0;
+
+function showMap(){
+    if (map === 0){
+        document.querySelector(".img-map").style.marginLeft = "0px";
+        map = 1;
+    } else {
+        document.querySelector(".img-map").style.marginLeft = "-100em";
+        map = 0;
+    }
+}
+
 
 
 
