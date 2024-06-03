@@ -48,6 +48,17 @@ a {
         padding: 10%;
         
     }
+     .silver-line{
+        top: 86%;
+    }
+
+    .blue-line{
+        top: 105%;
+    }
+
+    .orange-line{
+        top: 103%;
+    }
 
 }
 
@@ -346,6 +357,7 @@ button:hover {
     margin-left: -100em;
     border-radius: 20px;
     transition-duration: 0.5s;
+    max-width: 70vw;
 }
 .img-contain {
     background-color: #7B7674;
