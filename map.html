@@ -422,9 +422,34 @@ function showMap(){
     </ul>
     <div id="indicator"></div>
     </nav>
-    <div class="view-map" onclick = "showMap()"><i class="fa-solid fa-map" style="color: #63E6BE;"></i></div>
+    <div class="view-map" onclick = "showMap()"><i class="fa-solid fa-map fa-xl" style="color: #63E6BE;"></i></div>
     <div class="img-contain">
-    <img  class = "img-map" src = "https://live.staticflickr.com/2031/2367101216_2b61e1b2e6_c.jpg">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                     System map
+                </div>
+                <div class="accordion-body">
+                    <img class="img-map" src="https://live.staticflickr.com/2031/2367101216_2b61e1b2e6_c.jpg" alt="WMATA System Map">
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                     <span style="margin-right:200px;">Downtown map</span>
+                </div>
+                <div class="accordion-body">
+                    <img class="img-map" src="https://i.redd.it/unofficial-updated-washington-d-c-metro-map-v0-jwpa9hlnemha1.png?width=2578&format=png&auto=webp&s=41d3a641e257c92193fbf093ed7e75a378a40205" alt="WMATA Downtown Map">
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                     Accessibility map
+                </div>
+                <div class="accordion-body">
+                    <img class="img-map" src="https://cdn.vox-cdn.com/thumbor/CpWh6qYLNw34m7C3SbRWEpHZp2A=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9336455/01.jpg" alt="WMATA Accessibility Map">
+                </div>
+            </div>
+        </div>
     </div>
 <div class="map-info">
     <div class="line-view">
@@ -486,9 +511,45 @@ function showMap(){
            e.stopPropagation(); 
        });
    });
+
+   let map = 0;
+
+function showMap(){
+    if (map === 0){
+        document.querySelector(".img-contain").style.marginLeft = "10px";
+        document.querySelector(".img-contain2").style.marginLeft = "1000px";
+        map = 1;
+    } else {
+        document.querySelector(".img-contain").style.marginLeft = "-600px";
+        document.querySelector(".img-contain2").style.marginLeft = "-200px";
+        map = 0;
+    }
+}
+
+function toggleAccordion(headerElement) {
+    const accordionItem = headerElement.parentElement;
+    const accordionBody = headerElement.nextElementSibling;
+    const isActive = headerElement.classList.contains('active');
+
+    document.querySelectorAll('.accordion-header.active').forEach(header => {
+        header.classList.remove('active');
+        header.nextElementSibling.style.display = 'none';
+    });
+
+    if (!isActive) {
+        headerElement.classList.add('active');
+        accordionBody.style.display = 'block';
+    }
+}
     </script>
 
 
+
+
+
+</body>
+
+</html>
 
 
 </body>
