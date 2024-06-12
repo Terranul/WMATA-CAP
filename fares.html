@@ -44,6 +44,10 @@
         <div class="blue-line"></div>
         <div class="yellow-line"></div>
         <div class="silver-line"></div>
+        <div class="one-ring"></div>
+        <div class="two-ring"></div>
+        <div class="three-ring"></div>
+        <div class="four-ring"></div>
     </div>
 </div>
 
@@ -167,8 +171,15 @@
   <div class="result">
     <span style="font-weight: bold;">Result</span>
     <button onclick= "result()" class = "btn-result">Estimate Fare <i class="fa-solid fa-magnifying-glass"></i></button>
-    <div class="search">Calculating from stations chosen in zones <span style="font-weight: bold;">1 , 2</span></div>
+    <div id="fareResult"></div>
+    <div class="oke"></div>
+    <div class="search">Calculating from stations chosen in windows <span style="font-weight: bold;">1,2.</br>Window 3 will not function</span></div>
   </div>
+
+  <footer>
+    <p><span style = "margin: 30px;">To learn more, visit the WMATA website</span></p>
+    <a href="https://www.wmata.com/">Washington Metropolitain Area Transit Association</a>
+</footer>
 
 
   <script>
@@ -216,16 +227,13 @@ function option4() {
     
     document.querySelector(".option2").style.marginLeft = "200px";
     document.querySelector(".option1").style.marginLeft = "300px";
+
+
+    document.querySelector(".two-ring").style.display = "none";
+    document.querySelector(".one-ring").style.display = "none";
+    document.querySelector(".three-ring").style.display = "none";
+    document.querySelector(".four-ring").style.display = "none";
     type = 0; 
-
-    document.querySelector('.green-line').classList.remove('pseudo-active');
-    document.querySelector('.green-line').classList.add('pseudo-hide');
-    document.querySelector('.green-line').classList.remove('pseudo-show');
-    document.querySelector('.green-line').style.borderRightColor = "grey";
-
-    document.querySelector('.red-line').classList.remove('pseudo-active');
-    document.querySelector('.red-line').classList.add('pseudo-hide');
-    document.querySelector('.red-line').classList.remove('pseudo-show');
 
 
   } else if (type === 0) {
@@ -241,21 +249,7 @@ function option4() {
     document.querySelector(".option2").style.zIndex = "1"
     document.querySelector(".option1").style.zIndex = "1"
 
-    document.querySelector('.green-line').classList.add('pseudo-active');
-    document.querySelector('.green-line').classList.remove('pseudo-hide');
-    document.querySelector('.green-line').classList.add('pseudo-show');
-
-    document.querySelector('.red-line').classList.add('pseudo-active');
-    document.querySelector('.red-line').classList.remove('pseudo-hide');
-    document.querySelector('.red-line').classList.add('pseudo-show');
-
-    document.querySelector('.green-line').style.borderColor = "grey";
-    document.querySelector('.red-line').style.borderColor = "grey";
-    document.querySelector('.silver-line').style.borderColor = "grey";
-    document.querySelector('.orange-line').style.backgroundColor = "grey";
-    document.querySelector('.yellow-line').style.borderColor = "grey";
-    document.querySelector('.blue-line').style.borderColor = "grey";
-    document.querySelector('.green-line').style.borderRightColor = "green";
+    document.querySelector(".four-ring").style.display = "block";
     
     if (lock1 === 1){
       document.querySelector(".h31").innerHTML = 'Zone 4<i class="fa-regular fa-pen-to-square"></i>';
@@ -356,6 +350,12 @@ function option3() {
     
     document.querySelector(".option2").style.marginLeft = "200px";
     document.querySelector(".option1").style.marginLeft = "300px";
+
+
+    document.querySelector(".two-ring").style.display = "none";
+    document.querySelector(".one-ring").style.display = "none";
+    document.querySelector(".three-ring").style.display = "none";
+    document.querySelector(".four-ring").style.display = "none";
     type = 0; 
   } else if (type === 0) {
     document.querySelector(".option4").style.marginLeft = "0px";
@@ -368,6 +368,8 @@ function option3() {
     document.querySelector(".option4").style.zIndex = "1"
     document.querySelector(".option2").style.zIndex = "1"
     document.querySelector(".option1").style.zIndex = "1"
+
+    document.querySelector(".three-ring").style.display = "block";
 
     if (lock1 === 1){
       document.querySelector(".h31").innerHTML = 'Zone 3<i class="fa-regular fa-pen-to-square"></i>';
@@ -460,6 +462,11 @@ function option2(){
     
     document.querySelector(".option2").style.marginLeft = "0px";
     document.querySelector(".option1").style.marginLeft = "300px";
+
+    document.querySelector(".two-ring").style.display = "none";
+    document.querySelector(".one-ring").style.display = "none";
+    document.querySelector(".three-ring").style.display = "none";
+    document.querySelector(".four-ring").style.display = "none";
     type = 0; 
 
   } else if (type === 0) {
@@ -473,6 +480,8 @@ function option2(){
     document.querySelector(".option4").style.zIndex = "1"
     document.querySelector(".option2").style.zIndex = "3"
     document.querySelector(".option1").style.zIndex = "1"
+
+    document.querySelector(".two-ring").style.display = "block";
 
     if (lock1 === 1){
       document.querySelector(".h31").innerHTML = 'Zone 2<i class="fa-regular fa-pen-to-square"></i>';
@@ -542,21 +551,22 @@ function option2(){
 
 function option1(){
   const stations = [
-                { name: "Gallery Place" },
-                { name: "Metro Center" },
-                { name: "Judiciary Square" },
-                { name: "Archives-Navy" },
-                { name: "Federal Triangle" },
-                { name: "Smithsonian" },
-                { name: "L'Enfant Plaza" },
-                { name: "McPherson Square" },
-                { name: "Farragut West" },
-                { name: "Farragut North"},
-                { name: "Union Station" },
-                { name: "Mount Vernon Square" },
-                { name: "Capitol South" },
-                { name: "Eastern Market" }
-            ];
+    { name: "Gallery Place", code: "F01" },
+    { name: "Metro Center", code: "C01" },
+    { name: "Judiciary Square", code: "D01" },
+    { name: "Archives-Navy Memorial-Penn Quarter", code: "F02" },
+    { name: "Federal Triangle", code: "D02" },
+    { name: "Smithsonian", code: "D03" },
+    { name: "L'Enfant Plaza", code: "D04" },
+    { name: "McPherson Square", code: "C02" },
+    { name: "Farragut West", code: "C03" },
+    { name: "Farragut North", code: "A02" },
+    { name: "Union Station", code: "B03" },
+    { name: "Mount Vernon Square", code: "E01" },
+    { name: "Capitol South", code: "D05" },
+    { name: "Eastern Market", code: "D06" }
+];
+
 
     if (type === 1) {
     document.querySelector(".option4").style.marginLeft = "100px";
@@ -564,6 +574,11 @@ function option1(){
     
     document.querySelector(".option2").style.marginLeft = "300px";
     document.querySelector(".option1").style.marginLeft = "0px";
+
+    document.querySelector(".two-ring").style.display = "none";
+    document.querySelector(".one-ring").style.display = "none";
+    document.querySelector(".three-ring").style.display = "none";
+    document.querySelector(".four-ring").style.display = "none";
     type = 0; 
   } else if (type === 0) {
     document.querySelector(".option4").style.marginLeft = "0px";
@@ -576,6 +591,8 @@ function option1(){
     document.querySelector(".option4").style.zIndex = "1"
     document.querySelector(".option2").style.zIndex = "1"
     document.querySelector(".option1").style.zIndex = "3";
+
+    document.querySelector(".one-ring").style.display = "block";
 
     if (lock1 === 1){
       document.querySelector(".h31").innerHTML = 'Zone 1<i class="fa-regular fa-pen-to-square"></i>';
@@ -730,41 +747,45 @@ function arrow(){
   }
 }
 
-function result(){
 
-  function getSelectedStationCode() {
-            const selectedOption = selectElement.options[selectElement.selectedIndex];
-            const stationCode = selectedOption.value;
-            console.log('Selected Station Code:', stationCode);
-        }
+  async function result() {
+    const selectElement1 = document.getElementById('stationSelect1');
+    const fromStation = selectElement1.options[selectElement1.selectedIndex].value;
 
+    const selectElement2 = document.getElementById('stationSelect2');
+    const toStation = selectElement2.options[selectElement2.selectedIndex].value;
 
-  async function getStationCode(stationName) {
     const apiKey = '3ba908db8eca4b57bb3a46a5ae41c1aa';
-    const url = `https://api.wmata.com/Rail.svc/json/jStations?api_key=${apiKey}`;
+    const url = `https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?FromStationCode=${fromStation}&ToStationCode=${toStation}&api_key=${apiKey}`;
 
     try {
         const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Please Select a valid station.`);
+        }
+
         const data = await response.json();
+        if (data.StationToStationInfos && data.StationToStationInfos.length > 0) {
+            const fareInfo = data.StationToStationInfos[0].RailFare;
 
-        // Search for the station by name
-        const station = data.Stations.find(station => station.Name === stationName);
-
-        if (station) {
-            return station.Code;
+            const fareResult = document.getElementById('fareResult');
+            fareResult.innerHTML = `
+                <p>Peak Fare: $${fareInfo.PeakTime}</p>
+                <p>Off-Peak Fare: $${fareInfo.OffPeakTime}</p>
+                <p>Senior/Disabled Fare: $${fareInfo.SeniorDisabled}</p>
+            `;
         } else {
-            throw new Error('Station not found');
+            displayError('No fare information available for the selected stations.');
         }
     } catch (error) {
-        console.error('Error:', error);
+        displayError(`Error: ${error.message}. Check internet connection.`);
     }
+  }
+
+function displayError(message) {
+    const fareResult = document.getElementById('fareResult');
+    fareResult.innerHTML = `<p style="color: red;">${message}</p>`;
 }
-
-
-getStationCode(document.querySelector(select).textContent).then(code => console.log('Station Code:', code));
-
-}
-
   </script>
 
 
