@@ -17,7 +17,7 @@ a {
     color: black;
 }
 
-.options  {
+.options {
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -37,18 +37,15 @@ a {
 
  @media screen and (max-width: 500px) {
     .options {
-        display: flex;
         flex-direction: column;
-        width: 200px;
-        margin-left: 28%;
+        align-items: center;
     }
 
-    .station_types {
-        flex-direction: column;
-        padding: 10%;
-        
+    .options li {
+        width: 120px;
     }
-     .silver-line{
+
+    .silver-line{
         top: 86%;
     }
 
@@ -60,6 +57,33 @@ a {
         top: 103%;
     }
 
+    .station_types {
+        flex-direction: column;
+        padding: 10%;
+        
+    }
+
+}
+@media screen and (max-height:750px) {
+    .silver-line{
+        top: 60%;
+    }  
+    
+    .button-contain{
+        margin-top: 80vh!important;
+    }
+    .orange-line{
+        top: 76%;
+    }
+    .blue-line{
+        top: 78.5%;
+    }
+    .four-ring{
+        margin-top: 60px;
+    }
+    .add{
+        margin-top: 80px;
+    }
 }
 
  ul li:hover {
@@ -241,6 +265,7 @@ button:hover {
     border-radius: 20px;
     margin-top: 10px;
     display: none;
+    -webkit-user-drag: none;
 }
 
 #station-info{
@@ -342,25 +367,99 @@ button:hover {
 .view-map {
     border: 1px solid black;
     height: 1.5em;
-    width: 1.5em;
+    width: 1.7em;
     position: absolute;
     right: 0;
-    padding: 5px;
-    margin-right: 10px;
+    padding: 20px;
+    margin-right: 9px;
     border-radius: 20px;
     cursor: pointer;
 }
 
+.view-map i:hover{
+    animation: fa-beat 0.5s infinite;
+}
+
 .img-map{
-    position: absolute;
-    border: 2px solid;
-    margin-left: -100em;
     border-radius: 20px;
-    transition-duration: 0.5s;
-    max-width: 70vw;
+    max-width: 40vw;
 }
 .img-contain {
-    background-color: #7B7674;
+    all: initial;
+    all: unset;
+    border-radius: 20px;
+    position: absolute;
+    margin-left: -600px;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    -webkit-user-drag: none;
+    max-width: 300vw;
+    margin-top: 90px;
+}
+
+.img-contain2 {
+    all: initial;
+    all: unset;
+    border-radius: 20px;
+    position: absolute;
+    margin-left: -2000px;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    -webkit-user-drag: none;
+    max-width: 300vw;
+    margin-top: 90px;
+    transition-duration: 0.5s;
+}
+
+.accordion {
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+.accordion-item {
+    border-top: 1px solid #ddd;
+}
+
+.accordion-header {
+    background: #f7f7f7;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+}
+
+.accordion-header::after {
+    content: '\25BC'; 
+    position: absolute;
+    right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+    transform: rotate(-90deg); 
+}
+
+.accordion-body {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    animation: fadein 0.5s;
+}
+
+.accordion-body img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.img-contain*{
+    all: unset;
 }
 
 .line-colour {
@@ -629,6 +728,52 @@ button:hover {
     bottom: 24%;
 }
 
+.one-ring {
+    position: absolute;
+    border: 5px solid black;
+    padding: 50px;
+    height: 160px;
+    top:56%;
+    border-radius: 30px;
+    border-style: dotted;
+    display:none;
+}
+
+.two-ring {
+    position: absolute;
+    border: 5px solid black;
+    padding: 150px;
+    top:50%;
+    width: 100px;
+    height: 45px;
+    margin-left: 100px;
+    border-radius: 30px;
+    border-style: dotted;
+    display: none;
+}
+
+.three-ring{
+    position: absolute;
+    border: 5px solid black;
+    padding: 220px;
+    width: 80px;
+    top:45%;
+    margin-left: 100px;
+    border-style: dotted;
+    border-radius: 30px;
+    display: none;
+}
+
+.four-ring {
+    position: absolute;
+    border: 5px solid black;
+    border-style: dotted;
+    padding:250px;
+    width: 180px;
+    top:37.5%;
+    border-radius: 30px;
+}
+
 .add {
     position: absolute;
     right: 3%;
@@ -808,7 +953,9 @@ tr td {
  }
 
 
-
+#fareResult{
+color:#147772;
+}
 @media screen and (min-width: 750px) {
 .text1 {
     width: 50vh;
@@ -888,3 +1035,4 @@ tr td {
     padding: 30px;
 }
 }
+
