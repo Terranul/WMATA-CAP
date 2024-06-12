@@ -371,15 +371,33 @@ function stat6() {
         document.querySelector(".hide-container").style.display = "none";
         document.querySelector(".read-more").style.display = "none"
     }}
-    let map = 0;
+ let map = 0;
 
 function showMap(){
     if (map === 0){
-        document.querySelector(".img-map").style.marginLeft = "0px";
+        document.querySelector(".img-contain").style.marginLeft = "10px";
+        document.querySelector(".img-contain2").style.marginLeft = "1000px";
         map = 1;
     } else {
-        document.querySelector(".img-map").style.marginLeft = "-100em";
+        document.querySelector(".img-contain").style.marginLeft = "-600px";
+        document.querySelector(".img-contain2").style.marginLeft = "-200px";
         map = 0;
+    }
+}
+
+function toggleAccordion(headerElement) {
+    const accordionItem = headerElement.parentElement;
+    const accordionBody = headerElement.nextElementSibling;
+    const isActive = headerElement.classList.contains('active');
+
+    document.querySelectorAll('.accordion-header.active').forEach(header => {
+        header.classList.remove('active');
+        header.nextElementSibling.style.display = 'none';
+    });
+
+    if (!isActive) {
+        headerElement.classList.add('active');
+        accordionBody.style.display = 'block';
     }
 }
 
@@ -512,35 +530,7 @@ function showMap(){
        });
    });
 
-   let map = 0;
-
-function showMap(){
-    if (map === 0){
-        document.querySelector(".img-contain").style.marginLeft = "10px";
-        document.querySelector(".img-contain2").style.marginLeft = "1000px";
-        map = 1;
-    } else {
-        document.querySelector(".img-contain").style.marginLeft = "-600px";
-        document.querySelector(".img-contain2").style.marginLeft = "-200px";
-        map = 0;
-    }
-}
-
-function toggleAccordion(headerElement) {
-    const accordionItem = headerElement.parentElement;
-    const accordionBody = headerElement.nextElementSibling;
-    const isActive = headerElement.classList.contains('active');
-
-    document.querySelectorAll('.accordion-header.active').forEach(header => {
-        header.classList.remove('active');
-        header.nextElementSibling.style.display = 'none';
-    });
-
-    if (!isActive) {
-        headerElement.classList.add('active');
-        accordionBody.style.display = 'block';
-    }
-}
+  
     </script>
 
 
@@ -551,7 +541,3 @@ function toggleAccordion(headerElement) {
 
 </html>
 
-
-</body>
-
-</html>
